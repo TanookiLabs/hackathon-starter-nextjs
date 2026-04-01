@@ -38,19 +38,22 @@ claude --version
 
 ## Quick Start
 
-### 1. Copy the template and install
+### 1. Clone the template and install
 
 ```bash
-cp -r templates/next-authjs-prisma my-project
+git clone https://github.com/TanookiLabs/hackathon-starter-nextjs.git my-project
 cd my-project
+rm -rf .git
 npm install
 ```
+
+The `rm -rf .git` removes the template's git history so you start fresh with your own repo.
 
 ### 2. Initialize Git and create a GitHub repository
 
 Your project needs its own Git repository so you can save your work and deploy to Vercel.
 
-First, initialize Git and make your first commit:
+Initialize Git and make your first commit:
 
 ```bash
 git init
