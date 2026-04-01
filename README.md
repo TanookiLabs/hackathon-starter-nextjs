@@ -18,13 +18,13 @@ Make sure you have all of these installed before starting. Click the **Setup gui
 
 | Prerequisite | Quick Download | Setup Guide |
 | ------------ | -------------- | ----------- |
-| **Node.js & npm** | [nodejs.org](https://nodejs.org/) (LTS) | [Step-by-step guide](../../guides/prerequisites/nodejs.md) |
-| **Git** | Mac: `xcode-select --install` · Win: [git-scm.com](https://git-scm.com/) | [Step-by-step guide](../../guides/prerequisites/git.md) |
-| **GitHub & GitHub CLI** | [github.com](https://github.com/) · [cli.github.com](https://cli.github.com/) | [Step-by-step guide](../../guides/prerequisites/github.md) |
-| **VS Code** | [code.visualstudio.com](https://code.visualstudio.com/) | [Step-by-step guide](../../guides/prerequisites/vscode.md) |
-| **Claude Code** | `npm install -g @anthropic-ai/claude-code` | [Step-by-step guide](../../guides/prerequisites/claude-code.md) |
-| **Vercel** | [vercel.com](https://vercel.com/) (sign in with GitHub) | [Step-by-step guide](../../guides/prerequisites/vercel.md) |
-| **Supabase** | [supabase.com](https://supabase.com/) | [Step-by-step guide](../../guides/prerequisites/supabase.md) |
+| **Node.js & npm** | [nodejs.org](https://nodejs.org/) (LTS) | [Step-by-step guide](guides/prerequisites/nodejs.md) |
+| **Git** | Mac: `xcode-select --install` · Win: [git-scm.com](https://git-scm.com/) | [Step-by-step guide](guides/prerequisites/git.md) |
+| **GitHub & GitHub CLI** | [github.com](https://github.com/) · [cli.github.com](https://cli.github.com/) | [Step-by-step guide](guides/prerequisites/github.md) |
+| **VS Code** | [code.visualstudio.com](https://code.visualstudio.com/) | [Step-by-step guide](guides/prerequisites/vscode.md) |
+| **Claude Code** | `npm install -g @anthropic-ai/claude-code` | [Step-by-step guide](guides/prerequisites/claude-code.md) |
+| **Vercel** | [vercel.com](https://vercel.com/) (sign in with GitHub) | [Step-by-step guide](guides/prerequisites/vercel.md) |
+| **Supabase** | [supabase.com](https://supabase.com/) | [Step-by-step guide](guides/prerequisites/supabase.md) |
 
 Verify your tools are installed:
 
