@@ -148,7 +148,7 @@ Open [localhost:3000](http://localhost:3000) in your browser. You can sign up wi
 
 ### 8. Deploy to Vercel
 
-Everything is done from the command line — no need to use the Vercel dashboard.
+Your project has two branches: `main` (where you work) and `production` (what Vercel deploys). This means you can push code to `main` as much as you want without affecting your live site. When you're ready to go live, you push to `production`.
 
 #### Link your project
 
@@ -157,6 +157,12 @@ npx vercel link
 ```
 
 This will ask you to log in (opens a browser), then connects your local project to Vercel. Accept the default settings when prompted.
+
+#### Set the production branch
+
+Go to your project on [vercel.com](https://vercel.com/), then **Settings → Git → Production Branch** and change it from `main` to `production`.
+
+This is the only step that requires the Vercel dashboard — everything else is done from the terminal.
 
 #### Add production environment variables
 
@@ -180,22 +186,22 @@ Paste your **prod** Supabase direct connection string (port `5432`).
 
 #### Deploy
 
+Push your code to the `production` branch to trigger a deploy:
+
 ```bash
-npx vercel --prod
+git push origin main:production
 ```
 
-Vercel will build your app and give you a live URL (e.g., `slow-hackathon.vercel.app`).
+This pushes your `main` branch to `production` on GitHub. Vercel will build your app and give you a live URL (e.g., `slow-hackathon.vercel.app`).
 
 Database schema migrations run automatically — the build command runs `prisma db push` before `next build`, so your production database stays in sync with your code.
 
 #### Deploying updates
 
-Every time you want to update your live site:
+Every time you want to update your live site, push to `production`:
 
 ```bash
-git add .
-git commit -m "describe your changes"
-npx vercel --prod
+git push origin main:production
 ```
 
 Or use the `/deploy` slash command in Claude Code, which does this for you.
@@ -203,13 +209,14 @@ Or use the `/deploy` slash command in Claude Code, which does this for you.
 ## How It Works: Dev vs Production
 
 ```
-LOCAL DEVELOPMENT
+LOCAL DEVELOPMENT (main branch)
   .env → DATABASE_URL + DIRECT_URL point to dev Supabase project
   npm run db:push → syncs schema to dev database
   npm run dev → runs app against dev database
+  git push → pushes to main (does NOT deploy)
 
-PRODUCTION (Vercel)
-  npx vercel --prod → builds and deploys to Vercel
+PRODUCTION (production branch → Vercel)
+  git push origin main:production → triggers Vercel deploy
   Vercel env vars → DATABASE_URL + DIRECT_URL point to prod Supabase project
   Vercel builds → prisma db push syncs schema to prod database → next build runs
   Your app and production database are both updated
@@ -218,7 +225,7 @@ PRODUCTION (Vercel)
 | Environment | Database | How Schema Gets Updated |
 |-------------|----------|------------------------|
 | **Local dev** | Dev Supabase project (from `.env`) | You run `npm run db:push` |
-| **Production** | Prod Supabase project (from Vercel env vars) | Automatic on every `npx vercel --prod` |
+| **Production** | Prod Supabase project (from Vercel env vars) | Automatic on every `git push origin main:production` |
 
 ## Using Claude Code
 
