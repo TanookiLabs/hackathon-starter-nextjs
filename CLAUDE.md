@@ -91,13 +91,11 @@ This project has custom slash commands the user may invoke. When they do, follow
 
 ## Deployment
 
-- This project uses two branches: `main` (working branch) and `production` (deploys to Vercel).
-- Pushing to `main` does NOT deploy. Pushing to `production` triggers a Vercel build.
-- To deploy: `git push origin main:production` (this pushes main's code to the production branch).
+- Deploy with `npx vercel --prod` — no need to use the Vercel dashboard or manage branches.
 - The build command is: `prisma generate && prisma db push && next build` — database schema syncs to production automatically.
-- Environment variables for production are set in Vercel → Settings → Environment Variables.
+- Environment variables for production are managed with `npx vercel env add <NAME> production`.
 - Production uses a separate Supabase project (prod) from local development (dev).
-- The /deploy slash command handles the full commit → push to main → push to production flow.
+- The /deploy slash command handles the full commit → push to GitHub → deploy to Vercel flow.
 
 ## Environment variables
 

@@ -148,46 +148,54 @@ Open [localhost:3000](http://localhost:3000) in your browser. You can sign up wi
 
 ### 8. Deploy to Vercel
 
-Your project has two branches: `main` (where you work) and `production` (what Vercel deploys). This means you can push code to `main` as much as you want without affecting your live site. When you're ready to go live, you push to `production`.
+Everything is done from the command line — no need to use the Vercel dashboard.
 
-#### Connect your repo
+#### Link your project
 
-1. Go to [vercel.com/new](https://vercel.com/new)
-2. Find your GitHub repo and click **Import**
-3. Vercel will auto-detect Next.js — leave the default settings
-4. Expand **Build and Output Settings** — no changes needed, but verify the framework is Next.js
-5. Change the **Production Branch** to `production`:
-   - After importing, go to **Settings → Git**
-   - Under **Production Branch**, change it from `main` to `production`
+```bash
+npx vercel link
+```
 
-#### Add environment variables
+This will ask you to log in (opens a browser), then connects your local project to Vercel. Accept the default settings when prompted.
 
-Go to **Settings → Environment Variables** and add these three:
+#### Add production environment variables
 
-| Variable       | Value                                    |
-| -------------- | ---------------------------------------- |
-| `AUTH_SECRET`  | Same secret you generated in step 3      |
-| `DATABASE_URL` | Your **prod** Supabase pooled connection string (port `6543`) |
-| `DIRECT_URL`   | Your **prod** Supabase direct connection string (port `5432`) |
+```bash
+npx vercel env add AUTH_SECRET production
+```
+
+When prompted, paste the same secret you generated in step 3 and press Enter.
+
+```bash
+npx vercel env add DATABASE_URL production
+```
+
+Paste your **prod** Supabase pooled connection string (port `6543`).
+
+```bash
+npx vercel env add DIRECT_URL production
+```
+
+Paste your **prod** Supabase direct connection string (port `5432`).
 
 #### Deploy
 
-Push your code to the `production` branch to trigger a deploy:
-
 ```bash
-git push origin main:production
+npx vercel --prod
 ```
 
-This pushes your `main` branch to `production` on GitHub. Vercel will build your app and give you a live URL (e.g., `slow-hackathon.vercel.app`).
+Vercel will build your app and give you a live URL (e.g., `slow-hackathon.vercel.app`).
 
 Database schema migrations run automatically — the build command runs `prisma db push` before `next build`, so your production database stays in sync with your code.
 
 #### Deploying updates
 
-Every time you want to update your live site, push to `production`:
+Every time you want to update your live site:
 
 ```bash
-git push origin main:production
+git add .
+git commit -m "describe your changes"
+npx vercel --prod
 ```
 
 Or use the `/deploy` slash command in Claude Code, which does this for you.
@@ -195,14 +203,13 @@ Or use the `/deploy` slash command in Claude Code, which does this for you.
 ## How It Works: Dev vs Production
 
 ```
-LOCAL DEVELOPMENT (main branch)
+LOCAL DEVELOPMENT
   .env → DATABASE_URL + DIRECT_URL point to dev Supabase project
   npm run db:push → syncs schema to dev database
   npm run dev → runs app against dev database
-  git push → pushes to main (does NOT deploy)
 
-PRODUCTION (production branch → Vercel)
-  git push origin main:production → triggers Vercel deploy
+PRODUCTION (Vercel)
+  npx vercel --prod → builds and deploys to Vercel
   Vercel env vars → DATABASE_URL + DIRECT_URL point to prod Supabase project
   Vercel builds → prisma db push syncs schema to prod database → next build runs
   Your app and production database are both updated
@@ -211,7 +218,7 @@ PRODUCTION (production branch → Vercel)
 | Environment | Database | How Schema Gets Updated |
 |-------------|----------|------------------------|
 | **Local dev** | Dev Supabase project (from `.env`) | You run `npm run db:push` |
-| **Production** | Prod Supabase project (from Vercel env vars) | Automatic on every `git push` / deploy |
+| **Production** | Prod Supabase project (from Vercel env vars) | Automatic on every `npx vercel --prod` |
 
 ## Using Claude Code
 
