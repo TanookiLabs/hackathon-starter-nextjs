@@ -35,6 +35,7 @@ This project has custom slash commands the user may invoke. When they do, follow
 | `/fix` | Debug and fix the current error |
 | `/research` | Research a topic, API, or product before building |
 | `/snapshot` | Git commit (local save point, does NOT push) |
+| `/push` | Push commits to GitHub (backup only, does NOT deploy) |
 | `/deploy` | Commit + push to GitHub + Vercel deploys automatically |
 | `/help` | Show all commands and tips |
 
