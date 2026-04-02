@@ -9,7 +9,7 @@ Common options:
 Steps:
 
 1. Install the required package (replicate, ai, @ai-sdk/openai, etc.)
-2. Add the API key to .env.local
+2. Add the API key to .env
 3. Create a server action that calls the AI API
 4. Build a UI component that lets the user interact with the AI feature
 5. Handle loading states and errors gracefully

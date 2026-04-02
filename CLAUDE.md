@@ -18,7 +18,7 @@ This is a Next.js app built at the Slow Ventures Creator Fund AI Hackathon. The 
 - `lib/db/prisma.ts` — Prisma client singleton
 - `lib/actions/auth.ts` — sign-up and sign-in server actions
 - `components/ui/` — shadcn/ui components
-- `.env.local` — environment variables (never commit this)
+- `.env` — environment variables (never commit this)
 
 # Slash commands
 
@@ -99,10 +99,10 @@ This project has custom slash commands the user may invoke. When they do, follow
 
 ## Environment variables
 
-- All secrets go in `.env.local` (never committed to git).
+- All secrets go in `.env` (never committed to git).
 - Required: `AUTH_SECRET`, `DATABASE_URL`, `DIRECT_URL`
 - Optional: `REPLICATE_API_TOKEN`, `OPENAI_API_KEY`, `STRIPE_SECRET_KEY`, `RESEND_API_KEY`
-- When adding a new API integration, remind the user to add the key to both `.env.local` (local) and Vercel Settings (production).
+- When adding a new API integration, remind the user to add the key to both `.env` (local) and Vercel Settings (production).
 
 # Common patterns
 
@@ -117,7 +117,7 @@ This project has custom slash commands the user may invoke. When they do, follow
 ## Add an AI feature
 
 1. Install the package (`npm install replicate` or `npm install ai @ai-sdk/openai`)
-2. Add the API key to `.env.local`
+2. Add the API key to `.env`
 3. Create a server action that calls the API
 4. Build a UI with loading states and error handling
 

@@ -14,7 +14,7 @@ Steps:
 
 Common hackathon issues to check for:
 
-- Missing environment variables (check .env.local)
+- Missing environment variables (check .env)
 - Database table doesn't exist yet (run npm run db:push)
 - Import paths are wrong after moving files
 - Missing `"use server"` directive on server actions

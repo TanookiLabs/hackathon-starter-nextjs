@@ -3,7 +3,7 @@ Save a checkpoint of the current work. This creates a git commit so the user can
 Steps:
 
 1. Run git status to see what changed
-2. Stage all changed and new files (except .env.local and node_modules)
+2. Stage all changed and new files (except .env and node_modules)
 3. Generate a short, descriptive commit message based on what changed (e.g., "add user profiles page with edit form")
 4. Create the commit
 5. Confirm success and show a one-line summary of what was saved
