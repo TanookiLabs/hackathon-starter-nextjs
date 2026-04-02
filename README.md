@@ -41,8 +41,8 @@ claude --version
 ### 1. Clone the template and install
 
 ```bash
-git clone https://github.com/TanookiLabs/hackathon-starter-nextjs.git my-project
-cd my-project
+git clone https://github.com/TanookiLabs/hackathon-starter-nextjs.git slow-hackathon
+cd slow-hackathon
 rm -rf .git
 npm install
 ```
@@ -66,7 +66,7 @@ Now you need a GitHub repository to push your code to. Pick **one** of the two o
 #### Option A: Using the GitHub CLI (if you have it installed)
 
 ```bash
-gh repo create my-project --public --source=. --push
+gh repo create slow-hackathon --public --source=. --push
 ```
 
 This creates a new repo on GitHub and pushes your code in one step. Done!
@@ -74,15 +74,15 @@ This creates a new repo on GitHub and pushes your code in one step. Done!
 #### Option B: Create the repo on GitHub.com (works for everyone)
 
 1. Go to [github.com/new](https://github.com/new)
-2. Enter a **Repository name** (e.g., `my-project`)
+2. Enter a **Repository name** (e.g., `slow-hackathon`)
 3. Leave it set to **Public**
 4. **Do NOT** check "Add a README file" — your project already has files
 5. Click **Create repository**
-6. GitHub will show you a page with setup instructions. Find the section that says **"…or push an existing repository from the command line"** and copy the URL. It will look like `https://github.com/YOUR-USERNAME/my-project.git`
+6. GitHub will show you a page with setup instructions. Find the section that says **"…or push an existing repository from the command line"** and copy the URL. It will look like `https://github.com/YOUR-USERNAME/slow-hackathon.git`
 7. Back in your terminal, run these two commands (replace the URL with yours):
 
 ```bash
-git remote add origin https://github.com/YOUR-USERNAME/my-project.git
+git remote add origin https://github.com/YOUR-USERNAME/slow-hackathon.git
 git push -u origin main
 ```
 
@@ -107,8 +107,8 @@ This prints a random secret string. Copy it, open `.env` in your editor, and pas
 You'll create **two Supabase projects** — one for development and one for production. This keeps your dev data completely separate from your live app.
 
 1. Go to [supabase.com/dashboard](https://supabase.com/dashboard)
-2. Create a project named `my-project-dev`
-3. Create a second project named `my-project-prod`
+2. Create a project named `slow-hackathon-dev`
+3. Create a second project named `slow-hackathon-prod`
 4. For each project, go to **Connect** → **ORMs** tab → select **Prisma** → copy the `DATABASE_URL` and `DIRECT_URL`
 
 > ⚠️ **Important:** You need both URLs. `DATABASE_URL` uses the connection pooler (port `6543`). `DIRECT_URL` is for migrations and uses the direct connection (port `5432`).
@@ -178,7 +178,7 @@ Push your code to the `production` branch to trigger a deploy:
 git push origin main:production
 ```
 
-This pushes your `main` branch to `production` on GitHub. Vercel will build your app and give you a live URL (e.g., `my-project.vercel.app`).
+This pushes your `main` branch to `production` on GitHub. Vercel will build your app and give you a live URL (e.g., `slow-hackathon.vercel.app`).
 
 Database schema migrations run automatically — the build command runs `prisma db push` before `next build`, so your production database stays in sync with your code.
 

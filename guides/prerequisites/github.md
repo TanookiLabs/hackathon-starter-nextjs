@@ -80,7 +80,7 @@ You're now authenticated. You can create repos and push code from the terminal.
 Once authenticated, the most important command for the hackathon is creating a new repo:
 
 ```bash
-gh repo create my-project --public --source=. --push
+gh repo create slow-hackathon --public --source=. --push
 ```
 
 This creates a new repository on your GitHub account from the current folder and pushes all your code to it in one step.

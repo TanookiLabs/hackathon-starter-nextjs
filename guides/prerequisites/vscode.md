@@ -36,7 +36,7 @@ code --version
 You should see a version number. You can also open a project folder:
 
 ```bash
-code my-project
+code slow-hackathon
 ```
 
 ---
@@ -71,7 +71,7 @@ code --version
 You should see a version number. You can also open a project folder:
 
 ```bash
-code my-project
+code slow-hackathon
 ```
 
 ---

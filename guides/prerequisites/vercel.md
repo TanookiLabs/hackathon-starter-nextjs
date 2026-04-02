@@ -34,7 +34,7 @@ You write code locally
   → git push to GitHub
   → Vercel detects the push
   → Vercel builds and deploys your app
-  → You get a live URL like my-project.vercel.app
+  → You get a live URL like slow-hackathon.vercel.app
 ```
 
 Every push creates a new deployment. You can see all deployments in your Vercel dashboard.

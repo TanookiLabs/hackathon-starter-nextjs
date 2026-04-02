@@ -20,7 +20,7 @@ The free plan includes 2 projects, which is exactly what you need (one for devel
 
 1. From the [Supabase dashboard](https://supabase.com/dashboard), click **New Project**
 2. Select your organization (or create one)
-3. Give your project a name (e.g., `my-project-dev`)
+3. Give your project a name (e.g., `slow-hackathon-dev`)
 4. Set a **database password** — save this somewhere, you'll need it for your connection string
 5. Choose a **region** close to you (e.g., US East for San Francisco is fine)
 6. Click **Create new project**
@@ -53,7 +53,7 @@ Depending on which template you're using, you'll need different credentials:
 For the hackathon, it's recommended to have separate dev and production databases:
 
 1. Click **New Project** again
-2. Name it `my-project-prod`
+2. Name it `slow-hackathon-prod`
 3. Use the same steps to get credentials
 4. Add the production credentials to your Vercel environment variables
 
