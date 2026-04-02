@@ -148,24 +148,29 @@ Open [localhost:3000](http://localhost:3000) in your browser. You can sign up wi
 
 ### 8. Deploy to Vercel
 
-```bash
-# Option A: Tell Claude Code
-claude
-> "Deploy this to Vercel"
+#### Connect your repo
 
-# Option B: Use the Vercel dashboard
-# Go to vercel.com/new → Import your GitHub repo → Deploy
-```
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Find your GitHub repo and click **Import**
+3. Vercel will auto-detect Next.js — leave the default settings
 
-Add environment variables in **Vercel → Settings → Environment Variables**:
+#### Add environment variables
+
+Before you deploy, click **Environment Variables** and add these three:
 
 | Variable       | Value                                    |
 | -------------- | ---------------------------------------- |
-| `AUTH_SECRET`  | Same secret you generated locally        |
-| `DATABASE_URL` | Your **prod** Supabase pooled connection string |
-| `DIRECT_URL`   | Your **prod** Supabase direct connection string |
+| `AUTH_SECRET`  | Same secret you generated in step 3      |
+| `DATABASE_URL` | Your **prod** Supabase pooled connection string (port `6543`) |
+| `DIRECT_URL`   | Your **prod** Supabase direct connection string (port `5432`) |
 
-Database schema migrations run automatically on every deploy — the build command runs `prisma db push` before `next build`, so your production database stays in sync with your code.
+#### Deploy
+
+Click **Deploy**. Vercel will build your app and give you a live URL (e.g., `my-project.vercel.app`).
+
+Database schema migrations run automatically — the build command runs `prisma db push` before `next build`, so your production database stays in sync with your code.
+
+After the first deploy, every `git push` to main will automatically redeploy with the latest code and schema changes.
 
 ## How It Works: Dev vs Production
 
