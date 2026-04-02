@@ -88,7 +88,21 @@ git push -u origin main
 
 8. Refresh the GitHub page — you should see all your project files
 
-### 3. Set up Supabase
+### 3. Configure local environment
+
+```bash
+cp .env.local.example .env.local
+```
+
+Now generate a secret key for authentication. Run this in your terminal:
+
+```bash
+npx auth secret
+```
+
+This prints a random secret string. Copy it, open `.env.local` in your editor, and paste it as the value for `AUTH_SECRET`. Leave the file open — you'll fill in the database credentials in the next step.
+
+### 4. Set up Supabase
 
 You'll create **two Supabase projects** — one for development and one for production. This keeps your dev data completely separate from your live app.
 
@@ -101,22 +115,7 @@ You'll create **two Supabase projects** — one for development and one for prod
 
 Save both pairs of connection strings — you'll use the dev ones locally and the prod ones in Vercel.
 
-### 4. Configure local environment
-
-```bash
-cp .env.local.example .env.local
-```
-
-Now generate a secret key for authentication. Run this in your terminal:
-
-```bash
-npx auth secret
-```
-
-This prints a random secret string. Copy it.
-
-Edit `.env.local` and fill in:
-- `AUTH_SECRET` — paste the secret you just generated
+Paste your **dev** connection strings into `.env.local`:
 - `DATABASE_URL` — your **dev** Supabase pooled connection string
 - `DIRECT_URL` — your **dev** Supabase direct connection string
 
